@@ -14,11 +14,11 @@ class SqlMapper implements Mapper {
     }
 
     public function isAppropriateFor(array $configuration) {
-        return in_array($configuration['driver'], ['sqlsrv', 'mysql', 'pgsql']);
+        return in_array($configuration['driver'], ['sqlsrv', 'mysql', 'pgsql', 'dblib']);
     }
     
     private function mapLaravelToDoctrineDriver($l4Driver) {
-        $doctrineDrivers = ['mysql' => 'pdo_mysql', 'sqlsrv' => 'pdo_sqlsrv', 'pgsql' => 'pdo_pgsql'];
+        $doctrineDrivers = ['mysql' => 'pdo_mysql', 'sqlsrv' => 'pdo_sqlsrv', 'pgsql' => 'pdo_pgsql', 'dblib' => 'pdo_dblib'];
         return $doctrineDrivers[$l4Driver];
     }
 }
